@@ -5,6 +5,7 @@ Bundle-SymbolicName: org.eclipse.wildwebdeveloper;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.wildwebdeveloper.Activator
 Bundle-Vendor: Eclipse Wild Web Developer project
+Bundle-Classpath: .,language-servers/server/org.eclipse.lsp4xml-all.jar
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.apache.commons.io;bundle-version="2.2.0",
