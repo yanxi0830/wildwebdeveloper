@@ -27,7 +27,7 @@ public class LocalStreamConnectionProvider implements StreamConnectionProvider {
 	protected Future<?> future;
 
 	public LocalStreamConnectionProvider(LanguageServer server) {
-		this.server = server;
+		this.setServer(server);
 	}
 	
 	@Override
@@ -41,7 +41,7 @@ public class LocalStreamConnectionProvider implements StreamConnectionProvider {
 		in.connect(out2);
 		out.connect(in2);
 		
-		launcher = LSPLauncher.createServerLauncher(server, in2, out2);
+		launcher = LSPLauncher.createServerLauncher(getServer(), in2, out2);
 		inputStream = in;
 		outputStream = out;
 		future = launcher.startListening();
@@ -80,6 +80,14 @@ public class LocalStreamConnectionProvider implements StreamConnectionProvider {
 //			e.printStackTrace();
 //		}
 //		outputStream = null;
+	}
+
+	public LanguageServer getServer() {
+		return server;
+	}
+
+	public void setServer(LanguageServer server) {
+		this.server = server;
 	}
 
 }
